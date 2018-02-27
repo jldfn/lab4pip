@@ -1,0 +1,48 @@
+<div class="login" ng-controller="LoginCtrl" ng-cloak="" flex>
+    <div class="loginForm">
+    <md-content layout-padding="">
+        <form name="projectForm">
+
+            <div class="loginHeader" align="center">
+                <h1 class="md-subhead">
+                    Log in or Register
+                </h1>
+            </div>
+
+            <md-input-container class="md-block">
+                <label>Username</label>
+                <input ng-model="username"
+                       ng-required="true"
+                       ng-keypress="nextField($event)"
+                >
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Password</label>
+                <input ng-model="password"
+                       name="password"
+                       type="password"
+                       id="password"
+                       ng-required="true"
+                       minlength="5"
+                       maxlength="20"
+                       pattern="^[a-zA-Z0-9]+$"
+                       ng-keypress="entCheck($event)"
+                >
+                <div ng-messages="projectForm.password.$error" multiple="" md-auto-hide="false">
+                    <div ng-message="required">You must have a password</div>
+                    <div ng-message="minlength">Your password must contain at least <b>5</b> symbols</div>
+                    <div ng-message="maxlength">Your password is too long, checksum will be broken</div>
+                    <div ng-message="pattern">You can use only letters A-z and digits</div>
+                </div>
+            </md-input-container>
+
+            <section layout="row">
+                <md-button class="md-raised" ng-click="login()">Log In</md-button>
+                <md-button ng-click="register()">Register</md-button>
+            </section>
+
+        </form>
+    </md-content>
+    </div>
+</div>

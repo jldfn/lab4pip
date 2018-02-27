@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" ng-app="app4pip">
+<head>
+
+    <meta charset="utf-8"/>
+
+    <title> pip4lab </title>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="resources/css/main.css">
+
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-cookies.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <script type="text/javascript" src="resources/js/controllers/App.js"></script>
+    <script type="text/javascript" src="resources/js/controllers/Login.js"></script>
+    <script type="text/javascript" src="resources/js/controllers/Plot.js"></script>
+</head>
+
+<body>
+
+<md-toolbar>
+    <div class="md-toolbar-tools" >
+
+        <h1 class="md-headline" flex="" md-truncate="">
+            Никутьев Д.Е.   Гришин Д.О.   P3211   вариант 376
+        </h1>
+
+        <md-button class="md-raised"
+                   id="homepage"
+                   aria-label="Start Page"
+                   hidden ="hidden"
+                   href="/#/authentication">
+            Start Page
+        </md-button>
+    </div>
+</md-toolbar>
+
+<p class="md-body-1">
+    <ng-view></ng-view>
+</p>
+</body>
+</html>

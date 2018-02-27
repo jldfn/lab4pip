@@ -1,0 +1,107 @@
+<div class="plot" ng-controller="PlotCtrl" ng-cloak="">
+
+    <md-content layout-padding="">
+        <form name="projectForm">
+
+            <div layout="row" layout-xs="column" layout-sm="column" layout-wrap>
+
+                <div class="plotBox" flex layout="column">
+
+                    <div class="radiobuttons" layout="row">
+
+                        <div flex="70">
+                            <p> X value: <span class="radioValue">{{ data.xValue }}</span></p>
+                            <md-radio-group ng-model="data.xValue">
+
+                                <md-radio-button value="-4" class="md-primary">-4</md-radio-button>
+                                <md-radio-button value="-3" class="md-primary">-3</md-radio-button>
+                                <md-radio-button value="-2" class="md-primary">-2</md-radio-button>
+                                <md-radio-button value="-1" class="md-primary">-1</md-radio-button>
+                                <md-radio-button value="0" class="md-primary">0</md-radio-button>
+                                <md-radio-button value="1" class="md-primary">1</md-radio-button>
+                                <md-radio-button value="2" class="md-primary">2</md-radio-button>
+                                <md-radio-button value="3" class="md-primary">3</md-radio-button>
+                                <md-radio-button value="4" class="md-primary">4</md-radio-button>
+
+                            </md-radio-group>
+                        </div>
+
+                        <div flex>
+                            <p> R value: <span class="radioValue">{{ data.rValue }}</span></p>
+                            <md-radio-group ng-model="data.rValue" ng-change="drawPoints()">
+                                <md-radio-button value="-4" class="md-primary">-4</md-radio-button>
+                                <md-radio-button value="-3" class="md-primary">-3</md-radio-button>
+                                <md-radio-button value="-2" class="md-primary">-2</md-radio-button>
+                                <md-radio-button value="-1" class="md-primary">-1</md-radio-button>
+                                <md-radio-button value="0" class="md-primary">0</md-radio-button>
+                                <md-radio-button value="1" class="md-primary">1</md-radio-button>
+                                <md-radio-button value="2" class="md-primary">2</md-radio-button>
+                                <md-radio-button value="3" class="md-primary">3</md-radio-button>
+                                <md-radio-button value="4" class="md-primary">4</md-radio-button>
+                            </md-radio-group>
+                        </div>
+
+                    </div>
+
+                    <div class="yValue">
+                        <p> Y value: <span class="radioValue">{{ data.yValue }}</span></p>
+                        <md-input-container class="md-block">
+                            <input ng-model="data.yValue"
+                                   id="yValue"
+                                   name="yValue"
+                                   ng-required="true"
+                                   type="number"
+                                   min="-2.99999999999999"
+                                   max="2.99999999999999"
+                                   step="0.00000000000001"
+                            >
+                            <div ng-messages="projectForm.yValue.$error" multiple="" md-auto-hide="false">
+                                <div ng-message="required">You must define value of Y</div>
+                                <div ng-message="number">Numbers only</div>
+                                <div ng-message="max">Wow. Such many number</div>
+                                <div ng-message="min">Wow. How little can this be?</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+
+                    <md-button class="md-raised md-primary" ng-click="addDot()" type="button" style="max-width: 200px">
+                        Add new dot
+                    </md-button>
+
+                </div>
+
+                <div class="plotBox" flex>
+                    <div class="plotCenteringContainer">
+                        <div class="actualPlot" id="actualPlot">
+                            <canvas id="graph" height="400" width="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="plotBox" layout="column">
+
+                <table>
+                    <tr>
+                        <th>X</th>
+                        <th>Y</th>
+                        <th>Time</th>
+                        <th>Worktime</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr ng-repeat="dot in dotCollection">
+                        <td>{{dot.xValue}}</td>
+                        <td>{{dot.yValue}}</td>
+                        <td>{{dot.dateChecked}}</td>
+                        <td>{{dot.worktime}}</td>
+                        <td>{{pointResult(dot.xValue, dot.yValue, data.rValue)}}</td>
+
+                    </tr>
+                </table>
+
+            </div>
+
+        </form>
+    </md-content>
+</div>

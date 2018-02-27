@@ -1,0 +1,47 @@
+.loginForm {
+    width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    text-align: left;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow:
+            0 0 10px 5px rgba(221, 221, 221, 1);
+}
+
+.headContainer{
+    width: 770px;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.loginHeader{
+    padding-bottom: 10px;
+}
+
+.plotBox{
+    box-shadow:
+            0 0 10px 5px rgba(221, 221, 221, 1);
+    margin: 4px;
+    padding: 15px;
+    padding-left: 20px;
+}
+
+.yValue{
+    width: 200px;
+}
+
+.actualPlot{
+    width: 402px;
+    height: 402px;
+    border: 1px solid black;
+    margin: auto;
+    cursor: crosshair;
+}
+
+.plotCenteringContainer{
+    padding: 30px;
+}
+
